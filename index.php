@@ -77,7 +77,7 @@
 	<?php } else { ?>
 		<div id="app" class="center round white">
 			<form action="" method="post">
-				<input type="submit" name="action" value="logout" id="logout" class="round-small" />
+					<input type="submit" name="action" value="logout" id="logout" class="round-small" />
 			</form>
 			<form action="" method="post">
 				<input type="hidden" name="action" value="shorten" />
@@ -86,7 +86,7 @@
 			</form>
 		</div>
 	<?php } ?>
-	<div id=footer>
+	<div id="footer">
 		Personal URL Shortener ©2013 Vojtech Kral. Fork me on <a href="https://github.com/kralyk/personal-url-shortener">GitHub</a>!
 	</div>
 </body>
