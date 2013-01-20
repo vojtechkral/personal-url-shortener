@@ -4,6 +4,9 @@ namespace UrlShortener;
 // Page title
 define('TITLE', '');
 
+// Secure connection
+define('USE_HTTPS', true);
+
 // Password
 define('PW_SALT', 'place random salt here');
 define('PW_HASH', 'append your password to the salt, hash it all with sha-256 and copy here');

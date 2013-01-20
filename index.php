@@ -5,6 +5,8 @@
 	require __DIR__.'/program/session.php';
 	require __DIR__.'/program/urls.php';
 
+	if (USE_HTTPS) assert_https();
+
 	mt_srand(time());
 
 	if (isset($_GET['redirect']))
