@@ -3,4 +3,4 @@ FileETag none
 ServerSignature Off
 
 RewriteEngine On
-RewriteRule ^([0-9a-zA-Z_.~-]{5})$ index.php?redirect=$1 [L]
+RewriteRule ^([0-9a-zA-Z]{5})$ index.php?redirect=$1 [L]

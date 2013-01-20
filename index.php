@@ -87,7 +87,7 @@
 		</div>
 	<?php } ?>
 	<div id="footer">
-		Personal URL Shortener ©2013 Vojtech Kral. Fork me on <a href="https://github.com/kralyk/personal-url-shortener">GitHub</a>!
+		Personal URL Shortener  |  ©2013 Vojtech Kral  |  Fork me on <a href="https://github.com/kralyk/personal-url-shortener">GitHub</a>!
 	</div>
 </body>
 </html>
