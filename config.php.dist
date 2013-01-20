@@ -31,19 +31,20 @@ define('URL_PREFIX', 'http://'.$_SERVER['HTTP_HOST'].'/');
 define('URL_SIZE', 5);
 
 // Shortened URL character set
-// By default all the unreserved url chars
+// By default 0-9, a-z, A-Z
+// (Note: facebook ignores trailing '_' and '-' in URL)
 // Don't forget to modify .htaccess accordingly (regexp)
-define('URL_CHARS', '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_.~-');
+define('URL_CHARS', '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 
 /*
  * How many URLs you can assign with default character set?
  *
  * URL suffix size        No. of URLS
- * 1                      66
- * 2                      4356         (~4   k)
- * 3                      287496       (~290 k)
- * 4                      18974736     (~19  M)
- * 5                      1252332576   (~1   G)
- * 6                      82653950016  (~80  G)
+ * 1                      62
+ * 2                      3844         (~4   k)
+ * 3                      238328       (~240 k)
+ * 4                      14776336     (~15  M)
+ * 5                      916132832    (~1   G)
+ * 6                      56800235584  (~57  G)
  */
