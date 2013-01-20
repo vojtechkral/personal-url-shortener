@@ -1,0 +1,110 @@
+
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	color: #ffffff;
+	background-image: url('bg.png');
+	font-family: sans-serif;
+	height: 100%;
+}
+
+#login
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	margin: -100px 0 0 -150px;
+	padding: 15px;
+}
+
+#app
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	margin: -100px 0 0 -45%;
+	padding: 15px;
+}
+
+#logout
+{
+	color: #ffffff;
+	background-color: #005499;
+	border: 1px solid #005499;
+	font-weight: bold;
+	padding: 4px 20px;
+	margin: 0 -4px 5px 0;
+	float: right;
+}
+
+#footer
+{
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -200px;
+	padding-bottom: 2px;
+	width: 400px;
+}
+
+a
+{
+	color: #338DE1;
+	text-decoration: none;
+}
+
+a:hover, a:active, a:focus
+{
+	text-decoration: underline;
+}
+
+.center
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.white
+{
+	color: #005499;
+	background-image: url('bg-w.png');
+	box-shadow: 0 0 5px 1px #645F4E
+}
+
+label
+{
+	display: block;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+.in-text
+{
+	background: transparent;
+	border: 2px solid #005499;
+	color: #005499;
+	font-size: 14px;
+	font-weight: bold;
+	width: 99%;
+	padding: 3px 0 3px 1%;
+	height: 20px;
+}
+
+.round
+{
+	border-radius: 10px;
+}
+
+.round-small
+{
+	border-radius: 5px;
+}

@@ -1,0 +1,25 @@
+
+
+This is a very simple URL shortener for mostly personal use.
+Written in PHP.
+
+To use, edit config.php and .htaccess accordingly and upload to your site.
+The .htaccess and the rest of the application do not have to be on the same (sub)domain,
+which means you can, for example, access the interface at url.example.com for
+and the links at ex.com/xxxxx
+
+There is no admin interface.
+
+
+REQUIREMENTS:
+Recent version of PHP and MySQL.
+
+
+LEGAL:
+Originally based on PHP-URL-Shortener by Brian Cray (either GNU GPLv2 or CC BY 3.0 (ambigous)),
+although I ended up rewriting almost everything...
+
+Anyway, I'm releasing this under GNU GPLv3.
+
+Exception: background PNGs by Peax Webdesign, CC BY-SA 3.0.
+
