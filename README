@@ -1,12 +1,13 @@
 
 
-This is a very simple URL shortener for mostly personal use.
-Written in PHP.
+This is a very simple URL shortener with QR codes support
+for mostly personal use written in PHP.
 
 To use, edit config.php and .htaccess accordingly and upload to your site.
-The .htaccess and the rest of the application do not have to be on the same (sub)domain,
-which means you can, for example, access the interface at url.example.com for
-and the links at ex.com/xxxxx
+You don't need to have the application and the links on the same (sub)domain,
+which means you can, for example, access the interface at url.example.com
+and the links at ex.com/xxxxx, hence two .htaccess files.
+If you _do_ want to have the both in the same place, just merge them.
 
 There is no admin interface.
 
@@ -23,3 +24,4 @@ Anyway, I'm releasing this under GNU GPLv3.
 
 Exception: background PNGs by Peax Webdesign, CC BY-SA 3.0.
 
+Also contains phpqrcode library, GNU GPLv3 (http://phpqrcode.sourceforge.net/)

@@ -18,11 +18,6 @@ function db_connect()
 	return $mysqli;
 }
 
-function shortened_url($id)
-{
-	return URL_PREFIX.$id;
-}
-
 function id_assigned($id)
 {
 	$db = db_connect();
@@ -103,14 +98,15 @@ function is_self_url($url)
 	$url = \substr($url, 0, \strlen($prefix));
 
 	if (($url == $prefix) &&
-	    \preg_match('/^['.URL_CHARS.']{'.URL_SIZE.'}$/', $path)) return true;
+	    \preg_match('/^['.URL_CHARS.']{'.URL_SIZE.'}$/', $path)) return $path;
+	else return false;
 }
 
 function shorten_url($url)
 {
 	$url = \trim($url);
 	if (!\filter_var($url, FILTER_VALIDATE_URL)) return false;
-	if (is_self_url($url)) return $url;
+	if ($code = is_self_url($url)) return $code;
 
 	$db = db_connect();
 	$url = $db->real_escape_string($url);
@@ -121,7 +117,7 @@ function shorten_url($url)
 	{
 		//Already shortened
 		$row = $res->fetch_assoc();
-		return shortened_url($row['id']);
+		return $row['id'];
 	} else
 	{
 		//Create new one
@@ -134,7 +130,7 @@ function shorten_url($url)
 		$db->query('UNLOCK TABLES');
 		if (!$res) db_error($db);
 
-		return shortened_url($short);
+		return $short;
 	}
 }
 

@@ -22,6 +22,10 @@ define('DB_PASSWORD', 'that users password');
 define('DB_DBNAME', 'db name');
 define('DB_TABLE', 'shortenedurls');
 
+// Generate QR codes
+define('QR_CODES', true);
+define('QR_ECC_LVL', 'L');   //Either 'L', 'M', 'Q' or 'H', meaning 7%, 15%, 25% or 30% codewords can be restored, respectively.
+
 // Shortened URL prefix
 define('URL_PREFIX', 'http://'.$_SERVER['HTTP_HOST'].'/');
 
