@@ -1,0 +1,3 @@
+
+RewriteEngine On
+RewriteRule ^qr/(.*)$ index.php?qr=$1 [L]
