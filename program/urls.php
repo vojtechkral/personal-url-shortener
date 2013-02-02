@@ -47,6 +47,9 @@ function new_short_url()
 	//If PHP provided reasonable integers (bigger, unsigned,...)
 	//I wouldn't have had to become a Death eater...
 
+	//NOTE: I tried out a simpler algorithm which just generated chars
+	//      one by one, but it was much slower than this.
+
 	$chars = URL_CHARS;
 	$count_digits = \floor(\log(PHP_INT_MAX, $nchars));
 	if ($count_digits > URL_SIZE) $count_digits = URL_SIZE;
