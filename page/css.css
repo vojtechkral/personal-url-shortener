@@ -28,8 +28,8 @@ body
 	position: absolute;
 	top: 35%;
 	left: 50%;
-	width: 90%;
-	margin: -100px 0 0 -45%;
+	width: 800px;
+	margin: -100px 0 0 -400px;
 	padding: 15px;
 }
 
@@ -39,9 +39,11 @@ body
 	background-color: #A53400;
 	border: 1px solid #A53400;
 	font-weight: bold;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 	padding: 4px 20px;
 	margin: 0 -4px 5px 0;
-	float: right;
 }
 
 #qr
@@ -53,6 +55,25 @@ body
 	padding: 5px;
 	background-image: none;
 	background-color: #ffffff;
+}
+
+#url
+{
+	display: inline-block;
+	width: 672px;
+}
+
+#hint
+{
+	display: inline-block;
+	width: 100px;
+}
+
+#submit
+{
+	visibility: hidden;
+	position: fixed;
+	height: 0;
 }
 
 #footer
@@ -99,7 +120,6 @@ label
 	color: #A53400;
 	font-size: 14px;
 	font-weight: bold;
-	width: 99%;
 	padding: 3px 0 3px 1%;
 	height: 20px;
 }
@@ -113,3 +133,8 @@ label
 {
 	border-radius: 5px;
 }
+
+::-webkit-input-placeholder {color: #D9A883;}
+:-moz-placeholder {color: #D9A883;}
+::-moz-placeholder {color: #D9A883;}
+:-ms-input-placeholder {color: #D9A883;}

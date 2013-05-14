@@ -93,6 +93,18 @@ function new_short_url()
 	return false;
 }
 
+function validate_hint($hint)
+{
+	$hint = trim($hint);
+	if (!$hint) return false;
+	if (empty($hint)) return false;
+	if (\strlen($hint) != URL_SIZE) return false;
+	$arr = \str_split($hint);
+	foreach ($arr as $c) if (\strstr(URL_CHARS, $c) === false) return false;
+	if (id_assigned($hint)) return false;
+	return $hint;
+}
+
 function is_self_url($url)
 {
 	$prefix = \substr(URL_PREFIX, strpos(URL_PREFIX, '://')+3);
@@ -105,7 +117,7 @@ function is_self_url($url)
 	else return false;
 }
 
-function shorten_url($url)
+function shorten_url($url, $hint)
 {
 	$url = \trim($url);
 	if (!\filter_var($url, FILTER_VALIDATE_URL)) return false;
@@ -124,7 +136,8 @@ function shorten_url($url)
 	} else
 	{
 		//Create new one
-		$short = new_short_url();
+		$short = validate_hint($hint);
+		if (!$short) $short = new_short_url();
 		if (!$short) return false;
 
 		if (!$db->query('LOCK TABLES '.DB_TABLE.' WRITE;')) db_error($db);
