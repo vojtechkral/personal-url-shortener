@@ -45,7 +45,7 @@
 	function post_req_shorten()
 	{
 		global $short_url, $short_code;
-		$short_code = shorten_url($_POST['url']);
+		$short_code = shorten_url($_POST['url'], $_POST['hint']);
 		$short_url = URL_PREFIX.$short_code;
 		if ($short_code === false) $short_url = '-error-';
 	}
@@ -79,6 +79,9 @@
 	<title><?php echo TITLE ?></title>
 </head>
 <body>
+	<form action="" method="post">
+		<input type="submit" name="action" value="logout" id="logout" class="round-small" />
+	</form>
 	<?php if(!$have_session) { ?>
 		<div id="login" class="round white">
 			<form action="" method="post">
@@ -90,12 +93,11 @@
 	<?php } else { ?>
 		<div id="app" class="round white">
 			<form action="" method="post">
-					<input type="submit" name="action" value="logout" id="logout" class="round-small" />
-			</form>
-			<form action="" method="post">
 				<input type="hidden" name="action" value="shorten" />
 				<label for="url">Shorten URL:</label>
-				<input type="text" name="url" value="<?php echo htmlspecialchars($short_url) ?>" id="url" class="in-text focus round-small" />
+				<input type="text" name="url" value="<?php echo htmlspecialchars($short_url) ?>" id="url" class="in-text focus round-small" placeholder="URL" />
+				<input type="text" name="hint" id="hint" class="in-text round-small" placeholder="hint" />
+				<input type="submit" name="submit" value="submit" id="submit" class="round-small" />
 			</form>
 		</div>
 		<?php if(QR_CODES && $short_code)
@@ -104,7 +106,7 @@
 		} ?>
 	<?php } ?>
 	<div id="footer">
-		Personal URL Shortener  |  ©2013 Vojtech Kral  |  Fork me on <a href="https://github.com/kralyk/personal-url-shortener">GitHub</a>!
+		Personal URL Shortener  |  ©2013 Vojtech Kral  |  Fork me on <a href="https://github.com/vojtechkral/personal-url-shortener">GitHub</a>!
 	</div>
 </body>
 </html>
