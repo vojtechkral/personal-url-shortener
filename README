@@ -6,8 +6,7 @@ for mostly personal use written in PHP.
 To use, edit config.php and .htaccess accordingly and upload to your site.
 You don't need to have the application and the links on the same (sub)domain,
 which means you can, for example, access the interface at url.example.com
-and the links at ex.com/xxxxx, hence two .htaccess files.
-If you _do_ want to have the both in the same place, just merge them.
+and the links at ex.com/xxxxx.
 
 There is no admin interface.
 
@@ -24,4 +23,4 @@ Anyway, I'm releasing this under GNU GPLv3.
 
 Exception: background PNGs by Peax Webdesign, CC BY-SA 3.0.
 
-Also contains phpqrcode library, GNU GPLv3 (http://phpqrcode.sourceforge.net/)
+Also contains qrcode.js library, MIT License (http://davidshimjs.github.io/qrcodejs/)

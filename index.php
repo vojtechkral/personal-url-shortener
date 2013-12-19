@@ -4,7 +4,6 @@
 	require __DIR__.'/config.php';
 	require __DIR__.'/program/session.php';
 	require __DIR__.'/program/urls.php';
-	require __DIR__.'/program/qr.php';
 
 	mt_srand(time());
 
@@ -15,16 +14,6 @@
 		if (!$url) die('Unknown URL');
 		header('HTTP/1.1 301 Moved Permanently');
 		header('Location: '.$url);
-		exit;
-	}
-
-	if (isset($_GET['qr']))
-	{
-		//QR code
-		if (!QR_CODES) exit;
-		$url = URL_PREFIX.$_GET['qr'];
-		if (!is_self_url($url)) exit;
-		output_qr_png($url);
 		exit;
 	}
 
@@ -70,11 +59,35 @@
 	<meta name="language" content="en" />
 	<meta name="author" content="Vojtěch Král" />
 	<link href="page/css.css" rel="stylesheet" type="text/css" media="screen" />
+	<script type="text/javascript" src="program/3rdparty/qrcodejs/jquery.min.js"></script>
+	<script type="text/javascript" src="program/3rdparty/qrcodejs/qrcode.js"></script>
 	<script type="text/javascript">
-		window.onload = function()
+		$(document).ready(function()
 		{
-			document.getElementsByClassName("focus")[0].focus();
-		}
+			$('.focus').focus();
+
+			var qrcode = new QRCode('qr',
+			{
+				text: $('#url').val(),
+				width: 128,
+				height: 128,
+				colorDark : '#000000',
+				colorLight : '#ffffff',
+				correctLevel : <?php
+					switch (QR_ECC_LVL)
+					{
+						case 'L': echo 'QRCode.CorrectLevel.L'; break;
+						case 'M': echo 'QRCode.CorrectLevel.M'; break;
+						case 'Q': echo 'QRCode.CorrectLevel.Q'; break;
+						case 'H': echo 'QRCode.CorrectLevel.H'; break;
+					} ?>
+			});
+
+			$('#url').bind('input propertychange', function()
+			{
+				qrcode.makeCode($('#url').val());
+			});
+		});
 	</script>
 	<title><?php echo TITLE ?></title>
 </head>
@@ -100,9 +113,9 @@
 				<input type="submit" name="submit" value="submit" id="submit" class="round-small" />
 			</form>
 		</div>
-		<?php if(QR_CODES && $short_code)
+		<?php if(QR_CODES)
 		{
-			echo '<div id="qr" class="round white"><img src="qr/'.$short_code.'" /></div>';
+			echo '<div id="qr" class="round white"></div>';
 		} ?>
 	<?php } ?>
 	<div id="footer">

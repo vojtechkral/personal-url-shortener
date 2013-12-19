@@ -51,10 +51,10 @@ body
 	position: absolute;
 	top: 40%;
 	left: 50%;
+	width: 128px;
+	height: 128px;
 	margin-left: -86px;
 	padding: 5px;
-	background-image: none;
-	background-color: #ffffff;
 }
 
 #password
